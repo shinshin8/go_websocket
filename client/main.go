@@ -35,13 +35,12 @@ func main() {
 	}()
 
 	for {
+		time.Sleep(time.Second * 1)
 		select {
 		case <-reNew:
 			sendMsg(ws, true, "message")
-			time.Sleep(time.Second * 1)
 		default:
 			sendMsg(ws, false, "message")
-			time.Sleep(time.Second * 1)
 		}
 	}
 }
